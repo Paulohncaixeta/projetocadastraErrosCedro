@@ -10,7 +10,12 @@
     "keywords": ""
   },
   "/teste": {
-    "title": "dfdfdfdf",
+    "title": "Formulario Cardastro",
+    "description": "",
+    "keywords": ""
+  },
+  "/LoginAdm": {
+    "title": "Login do administrador",
     "description": "",
     "keywords": ""
   }

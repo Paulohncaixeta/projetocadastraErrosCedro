@@ -98,7 +98,8 @@
         items: [
           { icon: 'apps', title: 'Welcome', to: '/' },
           { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' },
-          { icon: 'bubble_chart', title: 'teste', to: '/teste' }
+          { icon: 'bubble_chart', title: 'teste', to: '/teste' },
+          { icon: 'bubble_chart', title: 'Login', to: '/LoginAdm' }
         ],
         miniVariant: false,
         right: true,
