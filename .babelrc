@@ -3,15 +3,7 @@
     ["env", { "modules": false }],
     ["stage-2"]
   ],
-  "plugins": [
-    "transform-runtime",
-    ["transform-imports", {
-      "vuetify": {
-        "transform": "vuetify/es5/components/${member}",
-        "preventFullImport": true
-      }
-    }]
-  ],
+  "plugins": ["transform-runtime"],
   "comments": false,
   "env": {
     "test": {
