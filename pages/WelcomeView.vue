@@ -2,7 +2,7 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
       <div class="text-xs-center">
-        <img src="/static/v.png" alt="Vuetify.js" class="mb-5" />
+        <img src="/static/logo-cedro.png" alt="CedroTech" class="mb-5" />
       </div>
       <v-card>
         <v-card-text>

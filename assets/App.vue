@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app light>
     <v-navigation-drawer
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -79,7 +79,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
+      <span>&copy; paulohncaixeta-2017</span>
     </v-footer>
   </v-app>
 </template>
@@ -99,12 +99,13 @@
           { icon: 'apps', title: 'Welcome', to: '/' },
           { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' },
           { icon: 'bubble_chart', title: 'teste', to: '/teste' },
-          { icon: 'bubble_chart', title: 'Login', to: '/LoginAdm' }
+          { icon: 'bubble_chart', title: 'Login', to: '/LoginAdm' },
+          { icon: 'bubble_chart', title: 'Gerenciador', to: '/GerenciadorHome' },
         ],
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Controle de Erros'
       }
     }
   }

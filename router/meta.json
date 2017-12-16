@@ -18,5 +18,10 @@
     "title": "Login do administrador",
     "description": "",
     "keywords": ""
+  },
+  "/GerenciadorHome": {
+    "title": "Home Gerenciador",
+    "description": "",
+    "keywords": ""
   }
 }

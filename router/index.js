@@ -11,8 +11,10 @@ function route (path, view) {
     path: path,
     meta: meta[path],
     component: resolve => import(`pages/${view}View.vue`).then(resolve)
+    
   }
 }
+
 
 Vue.use(Router)
 
@@ -26,6 +28,7 @@ export function createRouter () {
         route('/inspire', 'Inspire'),
         route('/teste', 'teste'),
         route('/loginAdm', 'LoginAdm'),
+        route('/GerenciadorHome', 'GerenciadorHome'),
         // Global redirect for 404
         { path: '*', redirect: '/' }
       ]
