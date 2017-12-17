@@ -26,7 +26,7 @@ export function createRouter () {
       routes: [
         route('/', 'Welcome'),
         route('/inspire', 'Inspire'),
-        route('/teste', 'teste'),
+        route('/CadastroErros', 'CadastroErros'),
         route('/loginAdm', 'LoginAdm'),
         route('/GerenciadorHome', 'GerenciadorHome'),
         // Global redirect for 404

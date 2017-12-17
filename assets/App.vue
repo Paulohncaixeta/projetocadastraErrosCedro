@@ -98,7 +98,7 @@
         items: [
           { icon: 'apps', title: 'Welcome', to: '/' },
           { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' },
-          { icon: 'bubble_chart', title: 'teste', to: '/teste' },
+          { icon: 'bubble_chart', title: 'CadastroErros', to: '/CadastroErros' },
           { icon: 'bubble_chart', title: 'Login', to: '/LoginAdm' },
           { icon: 'bubble_chart', title: 'Gerenciador', to: '/GerenciadorHome' },
         ],
