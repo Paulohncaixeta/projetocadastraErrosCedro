@@ -2,6 +2,10 @@
 <div>
   <v-layout justify-center align-center>
     <v-flex xs11 sm8>
+      <div class="text-xs-center">
+        <img src="/static/logo-cedro.png" alt="CedroTech" class="mb-5" />
+        <h2>Cadastro de Erros</h2>
+      </div>
       <v-card>
         <v-card-text>
           <v-form v-model="valid" ref="form" lazy-validation>
@@ -84,7 +88,7 @@
                 width="290px"
                 ><v-text-field
                       slot="activator"
-                      label="Picker in dialog"
+                      label="Marque o horário em que ocorreu o problema"
                       v-model="time"
                       prepend-icon="access_time"
                       readonly
@@ -92,12 +96,20 @@
                     <v-time-picker v-model="time" actions>
                       <template slot-scope="{ save, cancel }">
                         <v-card-actions>
-                          <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
-                          <v-btn flat color="primary" @click="save">Save</v-btn>
+                          <v-btn flat color="primary" @click="cancel">Cancelar</v-btn>
+                          <v-btn flat color="primary" @click="save">Salvar</v-btn>
                         </v-card-actions>
                       </template>
                     </v-time-picker>
               </v-dialog>
+              <div>
+                <v-text-field prepend-icon="attach_file" single-line
+                          v-model="filename" :label="label"
+                          @click.native="onFocus"
+                          :disabled="disabled" ref="fileTextField"></v-text-field>
+                <input type="file" :accept="accept" :multiple="false" :disabled="disabled"
+                  ref="fileInput" @change="onFileChange">
+              </div>
             <v-btn
               @click="submit"
               :disabled="!valid"
@@ -116,11 +128,13 @@
 import axios from 'axios';
 
 export default {
+
   data() {
     return {
       posts: [],
       errors: []
     }
+  
   },
  
   created() {
@@ -210,11 +224,82 @@ export default {
   }
 </script>
 
+<script>
+    export default{
+        props: {
+            value: {
+                type: [Array, String]
+            },
+            accept: {
+                type: String,
+                default: "*"
+            },
+            label: {
+                type: String,
+                default: "Escolha uma imagem do erro (.jpg ou .png)"
+            },
+            required: {
+                type: Boolean,
+                default: false
+            },
+            disabled: {
+                type: Boolean,
+                default: false
+            },
+            multiple: {
+                type: Boolean, // not yet possible because of data
+                default: false
+            }
+        },
+        data(){
+            return {
+                filename: ""
+            };
+        },
+        watch: {
+            value(v){
+                this.filename = v;
+            }
+        },
+        mounted() {
+            this.filename = this.value;
+        },
 
-
-<style>
-.FormCadastraErro{
-
-
-}
+        methods: {
+            getFormData(files){
+                const data = new FormData();
+                [...files].forEach(file => {
+                    data.append('data', file, file.name); // currently only one file at a time
+                });
+                return data;
+            },
+            onFocus(){
+                if (!this.disabled) {
+                    debugger;
+                    this.$refs.fileInput.click();
+                }
+            },
+            onFileChange($event){
+                const files = $event.target.files || $event.dataTransfer.files;
+                const form = this.getFormData(files);
+                if (files) {
+                    if (files.length > 0) {
+                        this.filename = [...files].map(file => file.name).join(', ');
+                    } else {
+                        this.filename = null;
+                    }
+                } else {
+                    this.filename = $event.target.value.split('\\').pop();
+                }
+                this.$emit('input', this.filename);
+                this.$emit('formData', form);
+            }
+        }
+    };
+</script>
+<style scoped>
+    input[type=file] {
+        position: absolute;
+        left: -99999px;
+    }
 </style>

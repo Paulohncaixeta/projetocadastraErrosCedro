@@ -28,8 +28,7 @@ export function createRouter () {
         route('/inspire', 'Inspire'),
         route('/CadastroErros', 'CadastroErros'),
         route('/loginAdm', 'LoginAdm'),
-        route('/GerenciadorHome', 'GerenciadorHome'),
-        // Global redirect for 404
+       // Global redirect for 404
         { path: '*', redirect: '/' }
       ]
     })
